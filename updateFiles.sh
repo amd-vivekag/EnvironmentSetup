@@ -1,9 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
-cp ~/.vimrc .
-cp ~/.bashrc .
-cp ~/.bash_aliases .
-cp ~/.bash_funcs .
-cp ~/.config/nvim/init.vim .config/nvim/init.vim
+while read f;
+do
+    if [[ ! $f =~ ^#.*$ && ! -z $f ]];
+    then
+        echo "Copying " ~/$f" to "$f "...";
+        cp ~/$f $f;
+    fi;
+done < files.txt
 

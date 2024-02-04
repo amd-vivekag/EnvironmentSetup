@@ -1,0 +1,13 @@
+# Bashrc
+.bashrc
+.bash_aliases
+.bash_funcs
+
+# VIMRC
+.vimrc
+
+# NVIM
+.config/nvim/init.vim
+
+# TMUX
+.tmux.conf

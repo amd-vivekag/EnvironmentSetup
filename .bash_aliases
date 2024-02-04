@@ -4,6 +4,7 @@ alias cd='pushd '
 alias vals='nvim ~/.bash_aliases'
 alias vmf='nvim ~/.bash_funcs'
 alias ss='source ~/.bashrc'
-alias vi='nvim '
+alias vi='nvim -p '
+alias vis='nvim -o '
 
 source ~/.bash_funcs
