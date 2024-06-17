@@ -3,6 +3,9 @@
 .bash_aliases
 .bash_funcs
 
+# SSH
+.ssh/config
+
 # VIMRC
 .vimrc
 
@@ -11,3 +14,4 @@
 
 # TMUX
 .tmux.conf
+

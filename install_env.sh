@@ -35,6 +35,8 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ## other plugins using tpm
 ### Prefix + I (in tmux)
 
-
 # add ssh key after launching ssh agent
 source ./add_ssh_key_commands
+
+# CMake installation
+sudo snap install cmake --classic
