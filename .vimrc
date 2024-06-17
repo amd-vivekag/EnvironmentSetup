@@ -50,3 +50,7 @@ autocmd BufWritePre *.cxx :%s/\s\+$//e
 autocmd BufWritePre *.h :%s/\s\+$//e
 
 set mouse-=a
+
+noremap Zz <c-w>_ \| <c-w>\|
+noremap Zo <c-w>=
+
