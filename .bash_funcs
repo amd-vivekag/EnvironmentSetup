@@ -1,6 +1,28 @@
-mkcd() {
+## quick commands
+
+#alias ctar='tar cvzf \!:1.tar.gz \!:1'
+function ctar() {
+  tar cvzf $1.tar.gz $1
+}
+
+#alias xtar='tar xvzf \!:1'
+function xtar() {
+  tar xvzf $1
+}
+
+#alias findn='find . -name \!:1'
+function findn() {
+  find . -name "$1"
+}
+
+function mkcd() {
   mkdir -p $1;
-  cd $1;
+  pushd $1;
+}
+
+function ppjson() {
+# pretty print json file
+  python -m json.tool $1 > $1.pp
 }
 
 function scpToAny {
