@@ -36,3 +36,8 @@ function scpFromAny {
 function awkColumn {
   awk '{print $'$1'}' $2
 }
+
+function svenv {
+  source $1/bin/activate
+}
+

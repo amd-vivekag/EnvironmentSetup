@@ -38,4 +38,6 @@ alias glogp='git log --pretty=oneline'
 alias gadd='git add'
 alias grest='git restore'
 
+alias genv='env | grep ' 
+
 source ~/.bash_funcs
