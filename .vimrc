@@ -3,7 +3,7 @@ set smartcase
 set smartindent
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
-" set ignorecase              " case insensitive 
+set ignorecase              " case insensitive 
 set mouse=v                 " middle-click paste with 
 set hlsearch                " highlight search 
 set incsearch               " incremental search
@@ -27,8 +27,19 @@ set ttyfast                 " Speed up scrolling in Vim
 " set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
 
+" Split related
+set splitright
+set splitbelow
+
 if !has('nvim')
-    set ttymouse=xterm2
+  set ttymouse=xterm2
+  " Tell vim to remember certain things when we exit
+  "  '10  :  marks will be remembered for up to 10 previously edited files
+  "  "100 :  will save up to 100 lines for each register
+  "  :20  :  up to 20 lines of command-line history will be remembered
+  "  %    :  saves and restores the buffer list
+  "  n... :  where to save the viminfo files
+  set viminfo='10,\"100,:20,%,n~/.viminfo
 endif
 
 if has('nvim')
@@ -48,9 +59,37 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.cxx :%s/\s\+$//e
 autocmd BufWritePre *.h :%s/\s\+$//e
+autocmd BufWritePre *.pl :%s/\s\+$//e
+autocmd BufWritePre *.pm :%s/\s\+$//e
 
 set mouse-=a
 
 noremap Zz <c-w>_ \| <c-w>\|
 noremap Zo <c-w>=
 
+map <C-N> :se nu!<CR>
+
+" table mode toggle
+noremap <Leader>tm :TableModeToggle
+
+fun! ShowFuncName()
+  let lnum = line(".")
+  let col = col(".")
+  echohl ModeMsg
+  echo getline(search("^[^ \t#/]\\{2}.*[^:]\s*$", 'bW'))
+  echohl None
+  call search("\\%" . lnum . "l" . "\\%" . col . "c")
+endfun
+map :f :call ShowFuncName() <CR>
+
+function! DebugPyPrint()
+  let var_name = input('Variable name: ')
+  execute "normal! oprint(f'VIVEK_DBG:: {".var_name."=}', file=sys.stderr)"
+  "execute "normal! Oprint(f'DEBUG:: {inspect.currentframe().f_back.f_code.co_filename}:{inspect.currentframe().f_back.f_lineno}:: {".var_name."=}')"
+endfun
+
+nnoremap <Leader>dp :call DebugPyPrint()<CR>
+
+" all unmappings
+silent! unmap t
+silent! unmap <C-E>
