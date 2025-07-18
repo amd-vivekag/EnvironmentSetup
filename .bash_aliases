@@ -12,8 +12,12 @@ alias vimdiff='nvim -d '
 alias sal='source ~/.bash_aliases'
 alias ss='source ~/.bashrc'
 
-alias la='ls -lart'
+alias la='ls -Altr'
+alias lah='ls -Altrh'
 alias cd='pushd '
+alias rlf='readlink -f '
+alias ch6='chmod 666 '
+alias ch5='chmod 755 '
 
 # tmux related aliases
 alias tml='tmux ls'
