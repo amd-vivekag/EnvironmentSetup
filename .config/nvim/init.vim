@@ -11,7 +11,7 @@ Plug 'https://github.com/tpope/vim-surround'
 "Plug 'https://github.com/lifepillar/pgsql.vim' " PSQL Pluging needs :SQLSetType pgsql.vim
 Plug 'https://github.com/ap/vim-css-color' " CSS Color Preview
 Plug 'https://github.com/rafi/awesome-vim-colorschemes' " Retro Scheme
-Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
+"Plug 'https://github.com/neoclide/coc.nvim'  " Auto Completion
 Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
 Plug 'https://github.com/tc50cal/vim-terminal' " Vim Terminal
 Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
@@ -24,7 +24,7 @@ Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple c
 " Plug 'preservim/nerdcommenter'
 " Plug 'mhinz/vim-startify'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'codota/tabnine-nvim', { 'do': './dl_binaries.sh' }
+"Plug 'codota/tabnine-nvim', { 'do': './dl_binaries.sh' }
 call plug#end()
 
 " lua << EOF
