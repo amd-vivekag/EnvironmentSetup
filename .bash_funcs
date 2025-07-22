@@ -25,6 +25,10 @@ function ppjson() {
   python -m json.tool $1 > $1.pp
 }
 
+function pretty_csv {
+  perl -pe 's/((?<=,)|(?<=^)),/ ,/g;' "$@" | column -t -s, | less  -F -S -X -K
+}
+
 function scpToAny {
   scp -r $1 vivekag@$3:$2
 }
@@ -41,3 +45,6 @@ function svenv {
   source $1/bin/activate
 }
 
+function gpu_pids {
+  rocm-smi --showpids | awk '{print $1}'  | head -n -2 | tail -n+7 | xargs -L1 ps -u -p
+}
