@@ -51,10 +51,11 @@ if has('persistent_undo')         "check if your vim version supports
   set undofile                    "turn on the feature
 endif
 
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" " Make <CR> to accept selected completion item or notify coc.nvim to format
+" " <C-g>u breaks current undo, please make your own choice.
+" inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+"                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 "Remove trailing whitespaces on save
 autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.cxx :%s/\s\+$//e
