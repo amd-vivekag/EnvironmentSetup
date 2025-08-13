@@ -42,6 +42,11 @@ if !has('nvim')
   set viminfo='10,\"100,:20,%,n~/.viminfo
 endif
 
+"" Open file at last position
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 if has('nvim')
     tnoremap <Esc> <C-\><C-n>
 endif
@@ -55,6 +60,13 @@ endif
 " " <C-g>u breaks current undo, please make your own choice.
 " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 "                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+if &diff
+  highlight DiffAdd    cterm=none ctermfg=Black ctermbg=LightCyan gui=none guifg=bg guibg=Red
+  highlight DiffDelete cterm=none ctermfg=Black ctermbg=DarkCyan gui=none guifg=bg guibg=Red
+  highlight DiffChange cterm=none ctermfg=Black ctermbg=Green gui=none guifg=bg guibg=Red
+  highlight DiffText   cterm=none ctermfg=Black ctermbg=DarkRed gui=none guifg=bg guibg=Red
+endif
 
 "Remove trailing whitespaces on save
 autocmd BufWritePre *.py :%s/\s\+$//e
