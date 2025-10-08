@@ -15,6 +15,7 @@ alias ss='source ~/.bashrc'
 alias la='ls -Altr'
 alias lah='ls -Altrh'
 alias cd='pushd '
+alias rm='rm -i'
 alias rlf='readlink -f '
 alias ch6='chmod 666 '
 alias ch5='chmod 755 '
@@ -43,5 +44,11 @@ alias gadd='git add'
 alias grest='git restore'
 
 alias genv='env | grep ' 
+
+# harness specific alias
+alias psr='ps -eaf | grep run_offline'
+alias psp='ps -eaf | grep python3'
+alias kp='kill -9 '
+alias pstree='ps -ejH | less'
 
 source ~/.bash_funcs
